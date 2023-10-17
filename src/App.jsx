@@ -49,6 +49,14 @@ const handleChoice = (card) => {
   choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
 }
 
+// reset choices & increase turn
+
+const resetTiurn = () => {
+  setChoiceOne(null)
+  setChoiceTwo(null)
+  setTurns(prevTurns => prevTurns + 1)
+}
+
   return (
     <div className="App">
       <h1>Magic Match</h1>
