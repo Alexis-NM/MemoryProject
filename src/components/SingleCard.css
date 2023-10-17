@@ -8,18 +8,15 @@
 .card img{
     width : 100%;
     display : block;
-    border : 2px solid #ffff;
+    border : 5px solid #32036f;
     border-radius: 6px;
 }
 
 .card .front {
-        width: 100%;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
+        transform : rotateY(90deg);
+        position: absolute;
       }
-      
-.card .back {
-        width: 100%;
-        border-radius: 14px;
-       
-      }
+
+.flipped .front {
+  transform: rotateY(0deg) ;
+}

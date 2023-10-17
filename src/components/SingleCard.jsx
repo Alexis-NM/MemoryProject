@@ -1,19 +1,37 @@
 import './SingleCard.css'
+import PropTypes from 'prop-types';
 
 
-export default function SingleCard({ card }) {
+function SingleCard({ card, handleChoice, flipped }) {
+
+const handleClick = () => {
+        handleChoice(card)
+}
 
 return (
-
-
 <div className="card">
-<div>
+<div className={flipped ? "flipped" : ""}>
         <img className="front" src={card.src} alt="card front" />
-        <img className="back" src="../public/img/Back.jpg" alt="card back" />
+        <img 
+        className="back" 
+        src="/img/Back2.jpg" 
+        onClick={handleClick}
+        alt="card back" 
+        />
 </div>
 </div>
-
-
 )
-
 }
+
+SingleCard.propTypes = {
+        card: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+          matched: PropTypes.bool.isRequired,
+          id: PropTypes.string.isRequired,
+        }).isRequired,
+        handleChoice: PropTypes.func.isRequired,
+        flipped: PropTypes.bool.isRequired,
+      };
+      
+
+export default SingleCard

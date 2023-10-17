@@ -3,14 +3,14 @@ import './App.css'
 import SingleCard from './components/SingleCard'
 
 const cardImages = [
-{"src" : "../public/img/6.png", matched : false},
-{"src" : "../public/img/38.png", matched : false},
-{"src" : "../public/img/55.png", matched : false},
-{"src" : "../public/img/65.png", matched : false},
-{"src" : "../public/img/94.png", matched : false},
-{"src" : "../public/img/106.png", matched : false},
-{"src" : "../public/img/131.png", matched : false},
-{"src" : "../public/img/143.png", matched : false},
+{"src" : "img/1.jpg", matched : false },
+{"src" : "img/2.jpg", matched : false },
+{"src" : "img/3.jpg", matched : false },
+{"src" : "img/4.jpg", matched : false },
+{"src" : "img/5.jpg", matched : false },
+{"src" : "img/6.jpg", matched : false },
+{"src" : "img/7.jpg", matched : false },
+{"src" : "img/8.jpg", matched : false },
 ]
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
 const [cards, setCards] = useState([])
 const [turns, setTurns] = useState(0)
 const [choiceOne, setChoiceOne] = useState(null)
-const [choiseTwo, setChoiceTwo] = useState(null)
+const [choiceTwo, setChoiceTwo] = useState(null)
 
 
   // shuffle cards
@@ -44,7 +44,8 @@ const handleChoice = (card) => {
 
 useEffect(()=> {
   if (choiceOne && choiceTwo) {
-    if (choiseOne.src === choiceTwo.src) {
+
+    if (choiceOne.src === choiceTwo.src) {
       setCards(prevCards => {
         return prevCards.map(card => {
           if (card.src === choiceOne.src) {
@@ -56,9 +57,9 @@ useEffect(()=> {
       })
       resetTurn()
     }else {
-      resetTurn()
-    }
+      setTimeout(() => resetTurn(), 1000)
   }
+}
 }, [choiceOne, choiceTwo])
 
 // reset choices & increase turn
@@ -80,6 +81,7 @@ const resetTurn = () => {
             key={card.id} 
             card={card}
             handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
         />
         ))}
       </div>
