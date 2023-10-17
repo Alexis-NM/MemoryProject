@@ -1,5 +1,17 @@
 import { useState } from 'react'
 import './App.css'
+import SingleCard from './components/SingleCard'
+
+const cardImages = [
+{"src" : "../public/img/6.png"},
+{"src" : "../public/img/38.png"},
+{"src" : "../public/img/55.png"},
+{"src" : "../public/img/65.png"},
+{"src" : "../public/img/94.png"},
+{"src" : "../public/img/106.png"},
+{"src" : "../public/img/131.png"},
+{"src" : "../public/img/143.png"},
+]
 
 const cardImages = [
 {"src" : "../public/img/6.png"},
@@ -28,7 +40,6 @@ const [turns, setTurns] = useState(0)
     setCards(shuffledCards)   
     setTurns(0)
     }
-
   return (
     <div className="App">
       <h1>Magic Match</h1>
@@ -36,12 +47,8 @@ const [turns, setTurns] = useState(0)
      
       <div className= "card-grid">
       {cards.map(card => (
-      <div className="card" key={card.id}>
-        <div>
-        <img className="front" src={card.src} alt="card front" />
-        <img className="back" src="../public/img/Back.jpg" alt="card back" />
-        </div>
-      </div>
+        <SingleCard key={card.id} card={card}/>
+
         ))}
       </div>
     </div>
