@@ -19,7 +19,6 @@ const [turns, setTurns] = useState(0)
 
 
   // shuffle cards
-
   const shuffleCards = () => {
     
     const shuffledCards = [...cardImages, ...cardImages]
@@ -29,8 +28,6 @@ const [turns, setTurns] = useState(0)
     setCards(shuffledCards)   
     setTurns(0)
     }
-
-    console.log(cards, turns)
 
   return (
     <div className="App">
